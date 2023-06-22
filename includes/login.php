@@ -10,13 +10,21 @@
     {
         $email = $_POST['email'];
         $password = $_POST['password'];
-
+        if(isset($_POST['email']))
+        {
+            
+        }
         $sql = "SELECT * FROM aluno WHERE email = '$email' AND senha = '$password';";
         $res = $conn->query($sql);
         $row = $res->fetch_assoc();
 
+        // Consertando erro de array nulo
+        $rowNome = isset($row['nome']) ? $row['nome'] : null; 
+        $rowSenha = isset($row['senha']) ? $row['senha'] : null; 
+        $rowEmail = isset($row['email']) ? $row['email'] : null; 
+
         // Validando se o email e a senha estão validas
-        if($row['email'] === $email && $row['senha'] === $password)
+        if($rowEmail === $email && $rowSenha === $password)
         {
             $_SESSION['nome'] = $row['nome']; 
             header('Location: ../pages/home.php');

@@ -19,9 +19,12 @@
             $sql = "SELECT nome, email FROM aluno WHERE nome = '$name' AND email = '$email'";
             $res = $conn->query($sql);
             $row = $res->fetch_assoc();
+
+            $rowNome = isset($row['nome']) ? $row['nome'] : null;
+            $rowEmail = isset($row['nome']) ? $row['email'] : null;
             
             // Validando se o aluno já está cadastrado no banco
-            if($row['nome'] === $name && $row['email'] === $email)
+            if($rowNome === $name && $rowEmail === $email)
             {
                 $msg = "Aluno já cadastrado";
                 $typeMsg = "danger";

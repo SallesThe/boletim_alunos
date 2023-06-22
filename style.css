@@ -91,3 +91,7 @@ index_button {
 .alert--home-professor {
     border: 5px solid red;
 }
+
+.select {
+    margin: 10px 0px;
+}

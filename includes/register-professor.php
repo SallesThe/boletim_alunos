@@ -19,9 +19,13 @@
             $sql = "SELECT nome, email FROM professor WHERE nome = '$name' AND email = '$email'";
             $res = $conn->query($sql);
             $row = $res->fetch_assoc();
+
+            // Consertando erro do array nulo 
+            $rowNome = isset($row['nome']) ? $row['nome'] : null;
+            $rowEmail = isset($row['email']) ? $row['email'] : null;
             
             // Validando se o aluno já está cadastrado no banco
-            if($row['nome'] === $name && $row['email'] === $email)
+            if($rowNome === $name && $rowEmail === $email)
             {
                 $msg = "Usuário já cadastrado";
                 $typeMsg = "danger";

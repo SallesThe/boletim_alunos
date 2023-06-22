@@ -26,7 +26,7 @@
             </form>
         </main>
         <footer>
-            <p class="version">version 0.0.1</p>
+            <p class="version">version 0.0.2</p>
         </footer>
     </body>
 </html>

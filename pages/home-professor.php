@@ -1,4 +1,4 @@
-<?php include '../includes/home-validate-professor.php'; ?>
+<?php include '../includes/home-validate-professor.php'; include '../includes/validate-login.php';?>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -12,19 +12,19 @@
     <body>
         <a href="../includes/logout.php" class="btn btn-danger logout">Sair</a>
         <div class="alert alert-success alert-dismissible fade show" style="position: fixed; bottom: 0; margin-bottom: 50px;" role="alert">
-            <strong> <?php echo $professor; ?></strong> Olha esse alerta animado, como é chique!
+            Olá <strong> <?php echo $professor; ?></strong>, seja bem-vindo !
             <button type="button" class="btn btn-danger" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
         <main>
             <h2>Menu</h2>
-            <a href="" class="btn btn-primary buttons--home-professor">Inserir nota</a>
+            <a href="./form-insert-grades.php" class="btn btn-primary buttons--home-professor">Inserir nota</a>
             <a href="" class="btn btn-primary buttons--home-professor">Anotações</a>
             <a href="" class="btn btn-warning buttons--home-professor">Avaliar aplicativo</a>
         </main>
         <footer>
-            <p class="version">version 0.0.1</p>
+            <p class="version">version 0.0.2</p>
         </footer>
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

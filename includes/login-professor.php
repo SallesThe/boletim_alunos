@@ -15,8 +15,12 @@
         $res = $conn->query($sql);
         $row = $res->fetch_assoc();
 
+        // Consertando erro do array nulo
+        $rowEmail = isset($row['email']) ? $row['email'] : null;
+        $rowSenha = isset($row['senha']) ? $row['senha'] : null;
+
         // Validando se o email e a senha estão validos
-        if($row['email'] === $email && $row['senha'] === $password)
+        if($rowEmail === $email && $rowSenha === $password)
         {
             $_SESSION['nome'] = $row['nome']; 
             header('Location: ../pages/home-professor.php');
