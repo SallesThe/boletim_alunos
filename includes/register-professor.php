@@ -16,22 +16,22 @@
             $password = $_POST['password'];
 
 
-            $sql = "SELECT nome, email FROM aluno WHERE nome = '$name' AND email = '$email'";
+            $sql = "SELECT nome, email FROM professor WHERE nome = '$name' AND email = '$email'";
             $res = $conn->query($sql);
             $row = $res->fetch_assoc();
             
             // Validando se o aluno já está cadastrado no banco
             if($row['nome'] === $name && $row['email'] === $email)
             {
-                $msg = "Aluno já cadastrado";
+                $msg = "Usuário já cadastrado";
                 $typeMsg = "danger";
                 $visibility = "visible";
             } else {
-                $msg = "Aluno cadastrado com sucesso!";
+                $msg = "Usuário cadastrado com sucesso!";
                 $typeMsg = "success";
                 $visibility = "visible";
           
-                $sql = "INSERT INTO aluno(nome, email, senha) VALUES('$name', '$email', '$password')";
+                $sql = "INSERT INTO professor(nome, email, senha) VALUES('$name', '$email', '$password')";
         
                 $conn->query($sql);                
             }

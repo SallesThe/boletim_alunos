@@ -11,15 +11,15 @@
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        $sql = "SELECT * FROM aluno WHERE email = '$email' AND senha = '$password';";
+        $sql = "SELECT * FROM professor WHERE email = '$email' AND senha = '$password';";
         $res = $conn->query($sql);
         $row = $res->fetch_assoc();
 
-        // Validando se o email e a senha estão validas
+        // Validando se o email e a senha estão validos
         if($row['email'] === $email && $row['senha'] === $password)
         {
             $_SESSION['nome'] = $row['nome']; 
-            header('Location: ../pages/home.php');
+            header('Location: ../pages/home-professor.php');
         } else {
             $msg = "Email ou senha inválidos!";
             $typeMsg = "danger";

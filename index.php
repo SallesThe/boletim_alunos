@@ -1,4 +1,3 @@
-<?php ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
@@ -11,17 +10,8 @@
     </head>
     <body>
         <main>
-            <form action="index.php" method="post">
-                <h1>Login</h1>
-                <label for="">Email: </label>
-                <input type="text" class="form-control" name="email" id="email">
-                <label for="">Senha:</label>
-                <input type="password" class="form-control" name="password" id="password">
-                <div class="buttons">
-                    <input type="submit" class="btn btn-success" value="Enviar">
-                    <a href="./pages/form_register.php" class="btn btn-primary">Cadastre-se</a>
-                </div>
-            </form>
+            <a href="./pages/form-login-professor.php" class="btn btn-success" style="width: 160px; height: 40px; margin-bottom: 25px; text-align: center;">Sou Professor</a>
+            <a href="./pages/form-login-student.php" class="btn btn-success" style="width: 160px; height: 40px;">Sou Aluno</a>
         </main>
     </body>
 </html>
