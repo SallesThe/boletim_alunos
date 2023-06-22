@@ -13,5 +13,8 @@
             <a href="./pages/form-login-professor.php" class="btn btn-success" style="width: 160px; height: 40px; margin-bottom: 25px; text-align: center;">Sou Professor</a>
             <a href="./pages/form-login-student.php" class="btn btn-success" style="width: 160px; height: 40px;">Sou Aluno</a>
         </main>
+        <footer>
+            <p class="version">version 0.0.1</p>
+        </footer>
     </body>
 </html>

@@ -25,5 +25,8 @@
                 </div>
             </form>
         </main>
+        <footer>
+            <p class="version">version 0.0.1</p>
+        </footer>
     </body>
 </html>

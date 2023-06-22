@@ -76,3 +76,18 @@ index_button {
     width: 100px;
 }
 
+.buttons--home-professor {
+    margin-top: 10px;
+    width: 200px;
+}
+
+.version {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-right: 50px;
+}
+
+.alert--home-professor {
+    border: 5px solid red;
+}
