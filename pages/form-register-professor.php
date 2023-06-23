@@ -1,4 +1,4 @@
-<?php include '../includes/register-professor.php'; ?>
+<?php include '../includes/register-professor.php'; include '../version.php'; ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
@@ -14,13 +14,23 @@
         <main>
             <form action="./form-register-professor.php" method="post">
                 <h1>Cadastro</h1>
-                <label for="">Nome: </label>
+                <label for="name">Nome: </label>
                 <input type="text" class="form-control" name="name" id="name" required>
-                <label for="">Email: </label>
+                <label for="email">Email: </label>
                 <input type="email" class="form-control" name="email" id="email" required>
-                <label for="">Senha:</label>
+                <label for="matter">Disciplina:</label>
+                <select class="form-select select" name="matter" id="matter" required>
+                    <option value="" selected>Selecione sua Disciplina</option>
+                    <option value="1">Português</option>
+                    <option value="2">Matemática</option>
+                    <option value="3">Raciocínio Lógico</option>
+                    <option value="4">Lógica de Programação</option>
+                </select>
+                <label for="class">Turma:</label>
+                <input type="text" class="form-control" name="class" id="class" required>
+                <label for="password">Senha:</label>
                 <input type="password" class="form-control" name="password" id="password" required>
-                <label for="">Corfime sua senha:</label>
+                <label for="confirm-passoword">Corfime sua senha:</label>
                 <input type="password" class="form-control" name="confirm-password" id="confirm-password" required>
                 <div class="buttons">
                     <input type="submit" class="btn btn-success" name="submit" value="Cadastrar">
@@ -29,7 +39,7 @@
             </form>
         </main>
         <footer>
-            <p class="version">version 0.0.2</p>
+            <p class="version"> <?php echo $version ?> </p>
         </footer>
     </body>
 </html>

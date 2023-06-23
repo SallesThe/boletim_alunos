@@ -1,4 +1,4 @@
-<?php include '../includes/register.php'; ?>
+<?php include '../includes/register.php'; include '../version.php'; ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
@@ -29,7 +29,7 @@
             </form>
         </main>
         <footer>
-            <p class="version">version 0.0.2</p>
+            <p class="version"> <?php echo $version ?> </p>
         </footer>
     </body>
 </html>

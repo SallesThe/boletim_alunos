@@ -1,4 +1,4 @@
-<?php include '../includes/insert-grades.php'; include '../includes/validate-login.php';?>
+<?php include '../includes/insert-grades.php'; include '../includes/validate-login.php'; include '../version.php'; ?>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -28,10 +28,11 @@
                 <label for="grade-2">Recuperação:</label>
                 <input class="form-control" type="text" name="grade-2" id="grade-2">
                 <input type="submit" class="btn btn-success" value="Inserir">
+                <a href="./home-professor.php" class="btn btn-primary">Voltar</a>
             </form>
         </main>
         <footer>
-            <p class="version">version 0.0.2</p>
+            <p class="version"> <?php echo $version ?> </p>
         </footer>
     </body>
 </html>

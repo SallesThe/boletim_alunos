@@ -3,7 +3,5 @@
     session_start();
 
     $professor = $_SESSION['nome'];
-    
-
-    
+        
 ?>

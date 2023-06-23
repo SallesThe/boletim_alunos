@@ -1,4 +1,4 @@
-<?php include '../includes/home_validate.php'; include '../includes/validate-login.php';?>
+<?php include '../includes/home_validate.php'; include '../includes/validate-login.php'; include '../version.php';?>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -35,7 +35,7 @@
             </table>
         </main>
         <footer>
-            <p class="version">version 0.0.2</p>
+            <p class="version"> <?php echo $version ?> </p>
         </footer>
     </body>
 </html>

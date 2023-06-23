@@ -1,3 +1,4 @@
+<?php include 'version.php'; ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
@@ -11,10 +12,11 @@
     <body>
         <main>
             <a href="./pages/form-login-professor.php" class="btn btn-success" style="width: 160px; height: 40px; margin-bottom: 25px; text-align: center;">Sou Professor</a>
-            <a href="./pages/form-login-student.php" class="btn btn-success" style="width: 160px; height: 40px;">Sou Aluno</a>
+            <a href="./pages/form-login-student.php" class="btn btn-success" style="width: 160px; height: 40px; margin-bottom: 25px;">Sou Aluno</a>
+            <a href="./pages/form-admin.php" class="btn btn-secondary" style="width: 160px; height: 40px;">Administrador</a>
         </main>
         <footer>
-            <p class="version">version 0.0.1</p>
+            <p class="version"> <?php echo $version ?> </p>
         </footer>
     </body>
 </html>
