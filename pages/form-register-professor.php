@@ -10,7 +10,10 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     </head>
     <body>
-        <p id="message" class="alert alert-<?php echo "$typeMsg";?>" style='visibility: <?php echo "$visibility"?> ;'> <?php echo "$msg"; ?> </p>
+        <p 
+            id="message" class="alert alert-<?php echo "$typeMsg";?>" style='visibility: <?php echo "$visibility"?> ;'> <?php echo "$msg"; ?>
+            <button class="close-button" onclick="closeButton()">X</button> 
+        </p>
         <main>
             <form action="./form-register-professor.php" method="post">
                 <h1>Cadastro</h1>
@@ -19,12 +22,14 @@
                 <label for="email">Email: </label>
                 <input type="email" class="form-control" name="email" id="email" required>
                 <label for="matter">Disciplina:</label>
-                <select class="form-select select" name="matter" id="matter" required>
+                <select class="form-select select" name="discipline" id="discipline" required>
                     <option value="" selected>Selecione sua Disciplina</option>
-                    <option value="1">Português</option>
-                    <option value="2">Matemática</option>
-                    <option value="3">Raciocínio Lógico</option>
-                    <option value="4">Lógica de Programação</option>
+                    <?php 
+                         while($row = $res->fetch_assoc())
+                         {
+                             echo "<option value='" . $row['nome'] . "'>" . $row['nome'] . "</option>"; 
+                         }
+                    ?>
                 </select>
                 <label for="class">Turma:</label>
                 <input type="text" class="form-control" name="class" id="class" required>
@@ -34,12 +39,17 @@
                 <input type="password" class="form-control" name="confirm-password" id="confirm-password" required>
                 <div class="buttons">
                     <input type="submit" class="btn btn-success" name="submit" value="Cadastrar">
-                    <a href="../pages/form-login-professor.php" class="btn btn-primary">Login</a>
+                    <a href="../pages/form-login-professor.php" class="btn btn-primary">Voltar</a>
                 </div>
             </form>
         </main>
         <footer>
             <p class="version"> <?php echo $version ?> </p>
         </footer>
+        <script> 
+            const closeButton = () => {
+                document.getElementById('message').style.display = "none";
+            } 
+        </script>
     </body>
 </html>

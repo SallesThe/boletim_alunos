@@ -15,7 +15,10 @@
             <a href="../../includes/logout.php" class="btn btn-danger">Sair</a>
 
         </div>
-        <p id="message" class="alert alert-<?php echo "$typeMsg";?> msg" style='visibility: <?php echo "$visibility"?> ;'> <?php echo "$msg"; ?> </p>
+        <p 
+            id="message" class="alert alert-<?php echo "$typeMsg";?>" style='visibility: <?php echo "$visibility"?> ;'> <?php echo "$msg"; ?>
+            <button class="close-button" onclick="closeButton()">X</button> 
+        </p>
         <main>
             <form action="form-add-discipline.php" method="post">
                 <h1>Deletar Disciplina</h1>
@@ -32,5 +35,10 @@
         <footer>
             <p class="version"> <?php echo $version ?> </p>
         </footer>
+        <script> 
+            const closeButton = () => {
+                document.getElementById('message').style.display = "none";
+            } 
+        </script>
     </body>
 </html>

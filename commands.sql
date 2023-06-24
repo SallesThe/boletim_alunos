@@ -34,7 +34,8 @@ CREATE TABLE professor(
     nome VARCHAR(255),
     email VARCHAR(255),
     senha VARCHAR(255),
-    disciplina VARCHAR(255)
+    disciplina VARCHAR(255),
+    turma VARCHAR(255)
 );
 
 CREATE TABLE disciplina(
@@ -51,3 +52,5 @@ CREATE TABLE admin(
 );
 
 INSERT INTO admin(nome, senha) values('root', '123@456');
+INSERT INTO disciplina(nome) values('Programação Orientado à Objetos');
+INSERT INTO aluno(nome, email, senha) values('Davi Sales Barcelos', 'manodada26@gmail.com', '123');

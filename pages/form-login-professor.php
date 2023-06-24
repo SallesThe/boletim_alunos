@@ -10,7 +10,10 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     </head>
     <body>
-        <p id="message" class="alert alert-<?php echo "$typeMsg";?>" style='visibility: <?php echo "$visibility"?> ;'> <?php echo "$msg"; ?> </p>
+        <p 
+            id="message" class="alert alert-<?php echo "$typeMsg";?>" style='visibility: <?php echo "$visibility"?> ;'> <?php echo "$msg"; ?>
+            <button class="close-button" onclick="closeButton()">X</button> 
+        </p>
         <main>
             <form action="form-login-professor.php" method="post">
                 <h1>Login</h1>
@@ -28,5 +31,10 @@
         <footer>
             <p class="version"> <?php echo $version ?> </p>
         </footer>
+        <script> 
+            const closeButton = () => {
+                document.getElementById('message').style.display = "none";
+            } 
+        </script>
     </body>
 </html>
