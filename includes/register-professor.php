@@ -5,11 +5,10 @@
     $visibility = "hidden";
     $msg = $typeMsg = "";
 
+    // Preenchendo opções da tag SELECT
     $sql_select = "SELECT nome FROM disciplina";
     $res = $conn->query($sql_select);
-        
-
-    
+            
     // Validando se o formulário foi enviado
     if(isset($_POST['submit']))
     {
@@ -49,7 +48,11 @@
                 $visibility = "visible";
           
                 $sql = "INSERT INTO professor(nome, email, senha, disciplina, turma) VALUES('$name', '$email', '$password', '$discipline', '$class')";
-                $conn->query($sql);                
+                $res = $conn->query($sql);
+                $row = $res->fetch_assoc();
+                
+                $discipline = isset($row['disciplina']) ? $row['disciplina'] : null;
+                $_SESSION['discipline'] = $discipline;
 
                 $sql_select = "SELECT nome FROM disciplina";
                 $res = $conn->query($sql_select);
