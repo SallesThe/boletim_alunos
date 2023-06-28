@@ -30,40 +30,38 @@
             $notaFinal = $mediaParcial;
             $situacao = $notaFinal >= 7 ? "Aprovado" : "Reprovado";
         } else {
-            $mediaParcial = (is_numeric($AV1) + is_numeric($AV2)) / 2;
+            $mediaParcial = ($AV1 + $AV2) / 2;
             $recuperation = 0;
             $notaFinal = $mediaParcial;
-            $situacao = is_numeric($notaFinal) < 7 ? "Aprovado" : "Reprovado";
+            $situacao = $notaFinal < 7 ? "Aprovado" : "Reprovado";
         }
 
 
-        $sql = "SELECT id FROM professor WHERE nome = '$professor'; ";
+        $sql = "SELECT * FROM aluno WHERE nome = '$student'; ";
         $res = $conn->query($sql);
         $row = $res->fetch_assoc();
 
-        $studentID = isset($row['id']) ? $row['id'] : null;
+        $studentName = isset($row['nome']) ? $row['nome'] : null;
 
-        $sql = "SELECT id_boletim FROM boletim WHERE id_boletim = '$studentID'";
-        $res = $conn->query($sql);
-        $row = $res->fetch_assoc();
+        echo $student;
+        echo $studentName;
 
-        $boletimID = isset($row['id_boletim']) ? $row['id_boletim'] : null;
-
-        if($boletimID !== $studentID)
+        if($student === $studentName)
         {
-            $sql = "INSERT INTO boletim(id_boletim, materia, provaA1, provaA2, recuperacao, notaFinal, mediaParcial, situacao) VALUES('$studentID', '$discipline', '$AV1', '$AV2', '$recuperation', '$mediaParcial', '$notaFinal', '$situacao');";
-            $conn->query($sql);
-
-            $msg = "Nota adicionada!";
-            $typeMsg = "success";
+            $msg = "Ja cadastrado";
+            $typeMsg = "danger";
             $visibility = "visible";
 
             // Buscando dados para preencher a tag select
             $sql_select = "SELECT nome FROM aluno";
             $res = $conn->query($sql_select);
+            
         } else {
-            $msg = "Ja cadastrado";
-            $typeMsg = "danger";
+            $sql = "INSERT INTO boletim(id_boletim, materia, provaA1, provaA2, recuperacao, notaFinal, mediaParcial, situacao) VALUES('$studentName', '$discipline', '$AV1', '$AV2', '$recuperation', '$mediaParcial', '$notaFinal', '$situacao');";
+            $conn->query($sql);
+
+            $msg = "Nota adicionada!";
+            $typeMsg = "success";
             $visibility = "visible";
 
             // Buscando dados para preencher a tag select
