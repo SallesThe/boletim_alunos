@@ -1,4 +1,3 @@
-
 CREATE DATABASE mydb CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 DROP DATABASE mydb;
 
@@ -19,11 +18,10 @@ CREATE TABLE aluno(
 CREATE TABLE boletim(
     id int PRIMARY KEY AUTO_INCREMENT,
     id_boletim int,
-    FOREIGN KEY (id_boletim) REFERENCES aluno(id),
     materia VARCHAR(255),
     provaA1 float,
     provaA2 float,
-    mediaPacial float,
+    mediaParcial float,
     recuperacao float,
     notaFinal float,
     situacao VARCHAR(255)    
@@ -52,5 +50,5 @@ CREATE TABLE admin(
 );
 
 INSERT INTO admin(nome, senha) values('root', '123@456');
-INSERT INTO disciplina(nome) values('Programação Orientado à Objetos');
+INSERT INTO disciplina(nome) values('Estrutura de Dados em C');
 INSERT INTO aluno(nome, email, senha) values('Davi Sales Barcelos', 'manodada26@gmail.com', '123');

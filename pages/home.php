@@ -24,15 +24,20 @@
                     <th>Nota Final</th>
                     <th>Situação</th>
                 </tr>
-                <tr>
-                    <td>Programação Orientado a Objetos</td>
-                    <td>7.0</td>
-                    <td>7.0</td>
-                    <td>7.0</td>
-                    <td></td>
-                    <td>7.0</td>
-                    <td>Aprovado</td>
-                </tr>
+                <?php 
+                    while($row = $res->fetch_assoc())
+                    {
+                        echo "<tr>";
+                        echo "<td>" . $row['materia'] . "</td>";
+                        echo "<td>" . $row['provaA1'] . "</td>";
+                        echo "<td>" . $row['provaA2'] . "</td>";
+                        echo "<td>" . $row['mediaParcial'] . "</td>";
+                        echo "<td>" . $row['recuperacao'] . "</td>";
+                        echo "<td>" . $row['notaFinal'] . "</td>";
+                        echo "<td>" . $row['situacao'] . "</td>";
+                        echo "</tr>";
+                    }
+                ?>
             </table>
         </main>
         <footer>

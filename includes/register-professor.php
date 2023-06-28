@@ -24,7 +24,7 @@
             $discipline = $_POST['discipline'];
 
 
-
+            // Buscando dados do profesor
             $sql = "SELECT nome, email FROM professor WHERE nome = '$name' AND email = '$email'";
             $res = $conn->query($sql);
             $row = $res->fetch_assoc();
@@ -42,17 +42,14 @@
 
                 $sql_select = "SELECT nome FROM disciplina";
                 $res = $conn->query($sql_select);
-            } else {
+            } else {      
+
+                $sql = "INSERT INTO professor(nome, email, senha, disciplina, turma) VALUES('$name', '$email', '$password', '$discipline', '$class');";
+                $res = $conn->query($sql);
+                
                 $msg = "Usuário cadastrado com sucesso!";
                 $typeMsg = "success";
                 $visibility = "visible";
-          
-                $sql = "INSERT INTO professor(nome, email, senha, disciplina, turma) VALUES('$name', '$email', '$password', '$discipline', '$class')";
-                $res = $conn->query($sql);
-                $row = $res->fetch_assoc();
-                
-                $discipline = isset($row['disciplina']) ? $row['disciplina'] : null;
-                $_SESSION['discipline'] = $discipline;
 
                 $sql_select = "SELECT nome FROM disciplina";
                 $res = $conn->query($sql_select);

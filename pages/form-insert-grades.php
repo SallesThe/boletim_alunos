@@ -20,8 +20,8 @@
             <h2>INSERIR NOTAS</h2>
             <form action="form-insert-grades.php" method="post">
                 <label for="student">Aluno:</label>
-                <select class="form-select select" name="student" id="student">
-                    <option selected>Selecione um aluno</option>
+                <select class="form-select select" name="student" id="student" required>
+                    <option value="" selected>Selecione um aluno</option>
                     <?php 
                         // Preenchendo o select
                         while($row = $res->fetch_assoc())
@@ -43,5 +43,10 @@
         <footer>
             <p class="version"> <?php echo $version ?> </p>
         </footer>
+        <script>
+            const closeButton = () => {
+                document.getElementById('message').style.display = "none";
+            } 
+        </script>
     </body>
 </html>

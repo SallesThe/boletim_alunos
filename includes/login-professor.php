@@ -23,6 +23,7 @@
         if($rowEmail === $email && $rowSenha === $password)
         {
             $_SESSION['nome'] = $row['nome']; 
+            $_SESSION['discipline'] = $row['disciplina']; 
             header('Location: ../pages/home-professor.php');
         } else {
             $msg = "Email ou senha inválidos!";
