@@ -5,8 +5,20 @@
     $visibility = "hidden";
     $msg = $typeMsg = "";
 
+    $sql = "SELECT * FROM disciplina;";
+    $res = $conn->query($sql);
+
     if(isset($_POST['submit']))
     {
-        $sql = "DELETE ";
+        $discipline = $_POST['discipline'];
+        $sql = "DELETE FROM disciplina WHERE nome = '$discipline'; ";
+        $conn->query($sql);
+
+        $msg = "Disciplina deletada com sucesso !";
+        $typeMsg = "success";
+        $visibility = "visible";
+
+        $sql = "SELECT * FROM disciplina;";
+        $res = $conn->query($sql);
     }
 ?>

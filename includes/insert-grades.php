@@ -40,15 +40,20 @@
         $sql = "SELECT * FROM aluno WHERE nome = '$student'; ";
         $res = $conn->query($sql);
         $row = $res->fetch_assoc();
+        
+        $studentID = isset($row['id']) ? $row['id'] : null;
+        
+        $sql = "SELECT * FROM boletim WHERE id_boletim = $studentID AND materia = '$discipline'; ";
+        $res = $conn->query($sql);
+        $row = $res->fetch_assoc();
 
-        $studentName = isset($row['nome']) ? $row['nome'] : null;
+        $boletimID = isset($row['id_boletim']) ? $row['id_boletim'] : null;
+        $boletimDiscipline = isset($row['materia']) ? $row['materia'] : null;
 
-        echo $student;
-        echo $studentName;
-
-        if($student === $studentName)
+        // Validando se a nota já foi inserida para determinado aluno
+        if($boletimID === $studentID && $boletimDiscipline === $discipline)
         {
-            $msg = "Ja cadastrado";
+            $msg = "Aluno já possui as notas preenchidas !";
             $typeMsg = "danger";
             $visibility = "visible";
 
@@ -57,7 +62,9 @@
             $res = $conn->query($sql_select);
             
         } else {
-            $sql = "INSERT INTO boletim(id_boletim, materia, provaA1, provaA2, recuperacao, notaFinal, mediaParcial, situacao) VALUES('$studentName', '$discipline', '$AV1', '$AV2', '$recuperation', '$mediaParcial', '$notaFinal', '$situacao');";
+
+            // Inserindo notas no banco de dados
+            $sql = "INSERT INTO boletim(id_boletim, materia, provaA1, provaA2, recuperacao, notaFinal, mediaParcial, situacao) VALUES('$studentID', '$discipline', '$AV1', '$AV2', '$recuperation', '$mediaParcial', '$notaFinal', '$situacao');";
             $conn->query($sql);
 
             $msg = "Nota adicionada!";

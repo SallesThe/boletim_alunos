@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Boletim Eletrônico - Inserir Nota</title>
+        <title>Boletim Eletrônico - Alterar Nota</title>
         <link rel="shortcut icon" href="../favicon-16x16.png" type="image/x-icon">
         <!-- CSS -->
         <link rel="stylesheet" href="../style.css" type="text/css" media="all">
@@ -12,7 +12,7 @@
     </head>
     <body>
         <div class="logout">
-            <a href="form-change-grades.php" class="btn btn-dark">Alterar nota</a>
+            <a href="form-insert-grades.php" class="btn btn-dark">Inserir nota</a>
             <a href="../includes/logout.php" class="btn btn-danger">Sair</a>
 
         </div>
@@ -21,7 +21,7 @@
             <button class="close-button" onclick="closeButton()">X</button> 
         </p>
         <main> 
-            <h2>INSERIR NOTAS</h2>
+            <h2>ALTERAR NOTAS</h2>
             <form action="form-insert-grades.php" method="post">
                 <label for="student">Aluno:</label>
                 <select class="form-select select" name="student" id="student" required>

@@ -5,6 +5,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Admin - Deletar disciplina</title>
+        <link rel="shortcut icon" href="../../favicon-16x16.png" type="image/x-icon">
+
         <!-- CSS -->
         <link rel="stylesheet" href="../../style.css" type="text/css" media="all">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
@@ -20,10 +22,10 @@
             <button class="close-button alert--home-professor " onclick="closeButton()">X</button> 
         </p>
         <main>
-            <form action="form-add-discipline.php" method="post">
+            <form action="form-delete-discipline.php" method="post">
                 <h1>Deletar Disciplina</h1>
                 <label for="name">Disciplina: </label>
-                <select class="form-select select" name="discipline" id="discipline">
+                <select class="form-select select" name="discipline" id="discipline" required>
                     <option selected>SELECIONE UMA DISCIPLINA</option>
                     <?php 
                         while($row = $res->fetch_assoc())
